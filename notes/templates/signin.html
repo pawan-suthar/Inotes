@@ -12,10 +12,10 @@
 <div class="container lg ">
 
     <body class="bg-black">
-        <div class="container mx-auto py-8">
-            <h1 class="text-2xl font-bold mb-6 text-center text-white">Sign in
+        <div class="container mx-auto ">
+            <h1 class="text-2xl font-bold text-center text-white">Sign in
             </h1>
-            <form method="post" class="w-full max-w-sm mx-auto bg-black p-8
+            <form method="post" class="w-full max-w-sm mx-auto bg-black p-4
                 rounded-md
                 shadow-md">
                 {% csrf_token %}
@@ -36,6 +36,15 @@
                         focus:outline-none focus:border-indigo-500"
                         type="email" id="email" name="email"
                         placeholder="john@example.com">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-white text-sm font-bold mb-2"
+                        for='number'>Email</label>
+                    <input class="w-full px-3 py-2 border border-gray-300
+                        rounded-md
+                        focus:outline-none focus:border-indigo-500"
+                        type="number" id="number" name="number"
+                        placeholder="number with country code">
                 </div>
                 <div class="mb-4">
                     <label class="block text-white text-sm font-bold mb-2"
