@@ -21,6 +21,11 @@ def contact(request):
     return render(request, 'contact.html')
 
 
+def mynotes(request):
+
+    return render(request, 'mynotes.html')
+
+
 def userlogin(request):
     error = ""
     if request.method == 'POST':

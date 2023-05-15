@@ -14,6 +14,7 @@ urlpatterns = [
     path('signin', signin, name='signin'),
     path('userprofile', userprofile, name='userprofile'),
     path('notesupload', notesupload, name='notesupload'),
+    path('mynotes', mynotes, name='mynotes'),
 
     # links for admin
     path('logout', Logout, name='logout'),
