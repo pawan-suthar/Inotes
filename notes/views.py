@@ -29,6 +29,12 @@ def signin(request):
     return render(request, 'signin.html')
 
 
+def home_admin(request):
+    if not request.user.is_staff:
+        return redirect('login_admin')
+    return render(request, 'homeadmin.html')
+
+
 def login_admin(request):
     error = ""
     if request.method == 'POST':

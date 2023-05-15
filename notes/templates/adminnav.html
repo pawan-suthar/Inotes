@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"></script>
+
+
+
+    </head>
+
+    <body>
+        <!-- component -->
+        <nav class="bg-white shadow dark:bg-black">
+            <div class="container flex items-center justify-center p-6 mx-auto
+                text-gray-600 capitalize dark:text-white">
+                <a href="{% url 'home_admin' %}" class="border-b-2
+                    border-transparent
+                    hover:text-gray-800 dark:hover:text-gray-200
+                    hover:border-blue-500 mx-1.5 sm:mx-6 capitalize">Home</a>
+
+                <a href="{% url 'about' %}" class="border-b-2 border-transparent
+                    hover:text-gray-800 dark:hover:text-gray-200
+                    hover:border-blue-500 mx-1.5 sm:mx-6 capitalize">uploaders</a>
+                <div class="relative">
+                    <a href="#" class="border-b-2
+                        border-transparent
+                        hover:text-gray-800 dark:hover:text-gray-200
+                        hover:border-blue-500 mx-1.5 sm:mx-6 capitalize">
+                        notes</a>
+                    <ul class="absolute top-10 right-0 bg-black text-white py-2
+                        px-4 rounded-md shadow-md hidden">
+                        <li class="hover:border-blue-500 mx-1.5 sm:mx-6
+                            capitalize mt-2"><a href="#">pending</a></li>
+                        <li class="hover:border-blue-500 mx-1.5 sm:mx-6
+                            capitalize mt-2"><a href="#">accepted</a></li>
+                        <li class="hover:border-blue-500 mx-1.5 sm:mx-6
+                            capitalize mt-2"><a href="#">all notes</a></li>
+                        <li class="hover:border-blue-500 mx-1.5 sm:mx-6
+                            capitalize mt-2"><a href="#">rejected</a></li>
+                    </ul>
+                </div>
+
+                <script>
+                        // Get the link and the dropdown menu
+                        const link = document.querySelector('.relative a');
+                        const menu = document.querySelector('.relative ul');
+                    
+                        // Add a click event listener to the link
+                        link.addEventListener('click', function (event) {
+                            event.preventDefault();
+                    
+                            // Toggle the 'hidden' class on the menu
+                            menu.classList.toggle('hidden');
+                        });
+                    
+                        // Add a click event listener to each option in the menu
+                        menu.querySelectorAll('a').forEach(option => {
+                            option.addEventListener('click', function (event) {
+                                // Hide the menu
+                                menu.classList.add('hidden');
+                            });
+                        });
+                    </script>
+                <a href="{% url 'login_admin' %}" class="border-b-2
+                    border-transparent
+                    hover:text-gray-800 dark:hover:text-gray-200
+                    hover:border-blue-500 mx-1.5 sm:mx-6 capitalize">Logout</a>
+            </div>
+        </nav>
+        {% block body %}
+
+        {% endblock body %}
+
+
+    </body>
+
+</html>

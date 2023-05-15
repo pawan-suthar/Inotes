@@ -2,7 +2,19 @@
 {% load static %}
 {% block body %}
 
-<!-- component -->
+{% if error == "no" %}
+<script>
+    alert("chal aja andar");
+    window.location.href = "{% url 'home_admin' %}";
+  </script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert("invalid user h bhai tu");
+  </script>
+{% endif %}
+
 
 
 <body class="bg-black">
