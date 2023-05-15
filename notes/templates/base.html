@@ -29,13 +29,18 @@
                     border-transparent
                     hover:text-gray-800 dark:hover:text-gray-200
                     hover:border-blue-500 mx-1.5 sm:mx-6 capitalize">Contact</a>
-                <a href="{% url 'login' %}" class="border-b-2 border-transparent
+                <a href="{% url 'userlogin' %}" class="border-b-2
+                    border-transparent
                     hover:text-gray-800 dark:hover:text-gray-200
                     hover:border-blue-500 mx-1.5 sm:mx-6 capitalize">Login</a>
                 <a href="{% url 'signin' %}" class="border-b-2
                     border-transparent
                     hover:text-gray-800 dark:hover:text-gray-200
                     hover:border-blue-500 mx-1.5 sm:mx-6 capitalize">Signin</a>
+                <a href="{% url 'login_admin' %}" class="border-b-2
+                    border-transparent
+                    hover:text-gray-800 dark:hover:text-gray-200
+                    hover:border-blue-500 mx-1.5 sm:mx-6 capitalize">Admin</a>
             </div>
         </nav>
         {% block body %}

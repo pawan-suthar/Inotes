@@ -1,4 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
+from .models import *
+from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 
@@ -16,7 +19,7 @@ def contact(request):
     return render(request, 'contact.html')
 
 
-def login(request):
+def userlogin(request):
 
     return render(request, 'login.html')
 
@@ -24,3 +27,22 @@ def login(request):
 def signin(request):
 
     return render(request, 'signin.html')
+
+
+def login_admin(request):
+    error = ""
+    if request.method == 'POST':
+        u = request.POST['auser']
+        p = request.POST['apass']
+        user = authenticate(username=u, password=p)
+        try:
+            if user.is_staff:
+                login(request, user)
+                error = 'no'
+            else:
+                error = 'yes'
+        except:
+            error = 'yes'
+
+    d = {'error': error}
+    return render(request, 'loginadmin.html', d)
