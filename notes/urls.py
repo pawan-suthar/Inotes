@@ -12,5 +12,6 @@ urlpatterns = [
     path('signin', signin, name='signin'),
     path('login_admin', login_admin, name='login_admin'),
     path('home_admin', home_admin, name='home_admin'),
+    path('userprofile', userprofile, name='homeuserprofileadmin'),
 
 ]

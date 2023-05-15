@@ -1,8 +1,20 @@
 {% extends "base.html" %}
 {% load static %}
 {% block body %}
+{% if error == "no" %}
 
-<!-- component -->
+<script>
+    alert("loged in");
+    window.location.href = "{% url 'userprofile' %}";
+  </script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert("invalid user h bhai tu");
+  </script>
+{% endif %}
+
 <div class="container lg ">
 
     <body class="bg-black">
@@ -14,11 +26,11 @@
                 {% csrf_token %}
                 <div class="mb-4">
                     <label class="block text-white text-sm font-bold mb-2"
-                        for="name">Name</label>
+                        for="name">Username</label>
                     <input class="w-full px-3 py-2 border border-gray-300
                         rounded-md
                         focus:outline-none focus:border-indigo-500"
-                        type="text" id="name" name="name"
+                        type="text" id="name" name="uname"
                         placeholder="yourname">
                 </div>
 
@@ -28,7 +40,7 @@
                     <input class="w-full px-3 py-2 border border-gray-300
                         rounded-md
                         focus:outline-none focus:border-indigo-500"
-                        type="password" id="password" name="password"
+                        type="password" id="password" name="upassword"
                         placeholder="********">
                 </div>
 

@@ -21,6 +21,21 @@ def contact(request):
 
 
 def userlogin(request):
+    error = ""
+    if request.method == 'POST':
+        u = request.POST['uname']
+        p = request.POST['upassword']
+        user = authenticate(username=u, password=p)
+        try:
+            if user:
+                login(request, user)
+                error = 'no'
+            else:
+                error = 'yes'
+        except:
+            error = 'yes'
+
+    d = {'error': error}
 
     return render(request, 'login.html')
 
@@ -28,6 +43,16 @@ def userlogin(request):
 def signin(request):
 
     return render(request, 'signin.html')
+
+
+def userprofile(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    user = User.objects.get(id=request.user.id)
+    data = Signup.objects.get(user=user)
+    d = {'data': data, 'user': user}
+
+    return render(request, 'userprofile.html', d)
 
 
 def Logout(request):
