@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from .models import *
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import HttpResponseRedirect
+from datetime import date
 
 # Create your views here.
 
@@ -99,3 +100,25 @@ def login_admin(request):
 
     d = {'error': error}
     return render(request, 'loginadmin.html', d)
+
+
+def notesupload(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    error = ""
+    if request.method == 'POST':
+        b = request.POST['branch']
+        ct = User.objects.filter(username=request.user.username).first()
+        s = request.POST['subject']
+        n = request.FILES['notes']
+        f = request.POST['filetype']
+        d = request.POST['description']
+
+        try:
+            Notes.objects.create(user=ct, uploaddate=date.today(
+            ), branch=b, subject=s, notes=n, filetype=f, description=d, status='pending')
+            error = 'no'
+        except:
+            error = 'yes'
+    d = {'error': error}
+    return render(request, "notesupload.html", d)
