@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+
+
+
+    <body class="dark:bg-black">
+        <!-- component -->
+        <nav class="bg-white shadow dark:bg-black">
+            <div class="container flex items-center justify-center p-6 mx-auto
+                text-gray-600 capitalize dark:text-white">
+                <a href="#" class="border-b-2
+                    border-transparent
+                    hover:text-gray-800 dark:hover:text-gray-200
+                    hover:border-blue-500 mx-1.5 sm:mx-6 capitalize">login as:
+                    {{request.user.username}}</a>
+                <a href="#" class="border-b-2
+                    border-transparent
+                    hover:text-gray-800 dark:hover:text-gray-200
+                    hover:border-blue-500 mx-1.5 sm:mx-6 capitalize">Home</a>
+
+                <a href="#" class="border-b-2 border-transparent
+                    hover:text-gray-800 dark:hover:text-gray-200
+                    hover:border-blue-500 mx-1.5 sm:mx-6 capitalize">Uploadnotes</a>
+                <a href="#" class="border-b-2
+                    border-transparent
+                    hover:text-gray-800 dark:hover:text-gray-200
+                    hover:border-blue-500 mx-1.5 sm:mx-6 capitalize">View all</a>
+                <a href="#" class="border-b-2
+                    border-transparent
+                    hover:text-gray-800 dark:hover:text-gray-200
+                    hover:border-blue-500 mx-1.5 sm:mx-6 capitalize">My uploads</a>
+                <a href="#" class="border-b-2
+                    border-transparent
+                    hover:text-gray-800 dark:hover:text-gray-200
+                    hover:border-blue-500 mx-1.5 sm:mx-6 capitalize">Signin</a>
+                <a href="{% url 'logout' %}" class="border-b-2
+                    border-transparent
+                    hover:text-gray-800 dark:hover:text-gray-200
+                    hover:border-blue-500 mx-1.5 sm:mx-6 capitalize">Logout</a>
+            </div>
+        </nav>
+        {% block body %}
+
+        {% endblock body %}
+    </body>

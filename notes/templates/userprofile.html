@@ -1,0 +1,59 @@
+{% extends "cmnnav.html" %}
+{% block body %}
+
+<div class="flex justify-center mt-52">
+    <div class="relative overflow-x-auto">
+        <table class="w-full text-sm text-left text-white
+            dark:text-gray-400 w-full ">
+            <thead class="text-xs text-white uppercase bg-black
+                dark:bg-black dark:text-white">
+                <tr>
+                    <th scope="col" class="px-6 py-3 rounded-l-lg">
+                        your data
+                    </th>
+
+                    <th scope="col" class="px-6 py-3 rounded-r-lg">
+                        value
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="bg-white dark:bg-black">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900
+                        whitespace-nowrap dark:text-white">
+                        Your email
+                    </th>
+
+                    <td class="px-6 py-4 text-white">
+                        {{data.user.username}}
+                    </td>
+                </tr>
+                <tr class="bg-white dark:bg-black">
+                    <th scope="row" class="px-6 py-4 font-medium text-white
+                        whitespace-nowrap dark:text-white">
+                        Your contact
+                    </th>
+
+                    <td class="px-6 py-4 text-white">
+                        {{data.contact}}
+                    </td>
+                </tr>
+                <tr class="bg-white dark:bg-black">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900
+                        whitespace-nowrap dark:text-white">
+                        Your branch
+                    </th>
+
+                    <td class="px-6 py-4 text-white">
+                        {{data.branch}}
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>
+
+
+
+{% endblock body %}
