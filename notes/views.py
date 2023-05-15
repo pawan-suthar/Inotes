@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from .models import *
 from django.contrib.auth import authenticate, login, logout
+from django.shortcuts import HttpResponseRedirect
 
 # Create your views here.
 
@@ -27,6 +28,11 @@ def userlogin(request):
 def signin(request):
 
     return render(request, 'signin.html')
+
+
+def Logout(request):
+    logout(request)
+    return redirect('home')
 
 
 def home_admin(request):
