@@ -23,9 +23,9 @@ def contact(request):
 def userlogin(request):
     error = ""
     if request.method == 'POST':
-        u = request.POST['uname']
+        e = request.POST['email']
         p = request.POST['upassword']
-        user = authenticate(username=u, password=p)
+        user = authenticate(username=e, password=p)
         try:
             if user:
                 login(request, user)
@@ -37,12 +37,28 @@ def userlogin(request):
 
     d = {'error': error}
 
-    return render(request, 'login.html')
+    return render(request, 'login.html', d)
 
 
 def signin(request):
+    error = ""
+    if request.method == 'POST':
+        # n = request.POST['uname']
+        e = request.POST['uemail']
+        # name and email user model me store
+        c = request.POST['ucnumber']
+        p = request.POST['upassword']
+        b = request.POST['ubranch']
+        # or baki ka signup model me
+        try:
+            user = User.objects.create_user(username=e, password=p)
+            Signup.objects.create(user=user, contact=c, branch=b)
+            error = 'no'
+        except:
+            error = 'yes'
 
-    return render(request, 'signin.html')
+    d = {'error': error}
+    return render(request, 'signin.html', d)
 
 
 def userprofile(request):

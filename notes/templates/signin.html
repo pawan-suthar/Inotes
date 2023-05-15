@@ -1,32 +1,40 @@
 
-
-
-
-
-
 {% extends "base.html" %}
 {% load static %}
 {% block body %}
+
+
+{% if error == "no" %}
+<script>
+    alert("register success");
+    window.location.href = "{% url 'userlogin' %}";
+  </script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert("shi se register nhi hua h tu");
+  </script>
+{% endif %}s
 
 <!-- component -->
 <div class="container lg ">
 
     <body class="bg-black">
         <div class="container mx-auto ">
-            <h1 class="text-2xl font-bold text-center text-white">Sign in
-            </h1>
+            <h1 class="text-2xl font-bold text-center text-white">Sign in</h1>
             <form method="post" class="w-full max-w-sm mx-auto bg-black p-4
                 rounded-md
                 shadow-md">
                 {% csrf_token %}
                 <div class="mb-4">
                     <label class="block text-white text-sm font-bold mb-2"
-                        for="name">Name</label>
+                        for="name">Userame</label>
                     <input class="w-full px-3 py-2 border border-gray-300
                         rounded-md
                         focus:outline-none focus:border-indigo-500"
-                        type="text" id="name" name="name"
-                        placeholder="yourname">
+                        type="text" id="name" name="uname"
+                        placeholder="yourUsername">
                 </div>
                 <div class="mb-4">
                     <label class="block text-white text-sm font-bold mb-2"
@@ -34,16 +42,16 @@
                     <input class="w-full px-3 py-2 border border-gray-300
                         rounded-md
                         focus:outline-none focus:border-indigo-500"
-                        type="email" id="email" name="email"
+                        type="email" id="email" name="uemail"
                         placeholder="john@example.com">
                 </div>
                 <div class="mb-4">
                     <label class="block text-white text-sm font-bold mb-2"
-                        for='number'>Email</label>
+                        for='number'>Contact</label>
                     <input class="w-full px-3 py-2 border border-gray-300
                         rounded-md
                         focus:outline-none focus:border-indigo-500"
-                        type="number" id="number" name="number"
+                        type="number" id="number" name="ucnumber"
                         placeholder="number with country code">
                 </div>
                 <div class="mb-4">
@@ -52,29 +60,30 @@
                     <input class="w-full px-3 py-2 border border-gray-300
                         rounded-md
                         focus:outline-none focus:border-indigo-500"
-                        type="password" id="password" name="password"
+                        type="password" id="password" name="upassword"
                         placeholder="********">
                 </div>
                 <label for="countries" class="block mb-2 text-sm font-medium
                     text-white dark:text-white">Branch</label>
-                <select id="countries" class="bg-black border border-white
+                <select id="countries" name="ubranch" class="bg-black border
+                    border-white
                     text-black text-sm rounded-lg focus:ring-blue-500
                     focus:border-blue-500 block w-full p-2.5 dark:bg-white
                     dark:border-gray-600
                     dark:text-black dark:focus:ring-blue-500
                     dark:focus:border-blue-500">
-                    <option selected>Choose a country</option>
-                    <option value="US">United States</option>
-                    <option value="CA">Canada</option>
-                    <option value="FR">France</option>
-                    <option value="DE">Germany</option>
+                    <option selected>Select your branch</option>
+                    <option value="US">CS</option>
+                    <option value="CA">Btech</option>
+                    <option value="FR">Mtech</option>
+                    <option value="DE">Electrical</option>
                 </select>
 
                 <button
                     class="w-full bg-indigo-500 text-white text-sm font-bold
                     py-2 mt-4
                     px-4 rounded-md hover:bg-indigo-600 transition duration-300"
-                    type="submit">login</button>
+                    type="submit">register</button>
             </form>
         </div>
 

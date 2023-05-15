@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block body %}
+
 {% if error == "no" %}
 
 <script>
@@ -26,11 +27,11 @@
                 {% csrf_token %}
                 <div class="mb-4">
                     <label class="block text-white text-sm font-bold mb-2"
-                        for="name">Username</label>
+                        for="name">Email</label>
                     <input class="w-full px-3 py-2 border border-gray-300
                         rounded-md
                         focus:outline-none focus:border-indigo-500"
-                        type="text" id="name" name="uname"
+                        type="text" id="name" name="email"
                         placeholder="yourname">
                 </div>
 
@@ -48,7 +49,7 @@
                     class="w-full bg-indigo-500 text-white text-sm font-bold
                     py-2
                     px-4 rounded-md hover:bg-indigo-600 transition duration-300"
-                    type="submit">Register</button>
+                    type="submit">login</button>
             </form>
         </div>
 
