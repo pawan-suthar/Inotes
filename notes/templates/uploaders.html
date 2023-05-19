@@ -1,0 +1,54 @@
+{% extends "adminnav.html" %}
+{% block body %}
+
+<div class="mx-auto w-4/5 m-4">
+    <h1 class="text-4xl sm:text-5xl text-gray-800
+        dark:text-white font-extrabold tracking-tight text-center mb-16">
+        All uploaders
+    </h1>
+
+    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+            <div class="overflow-hidden">
+                <table class="min-w-full text-left text-sm font-light">
+                    <thead
+                        class="border-b font-medium dark:border-neutral-500">
+                        <tr>
+                            <th scope="col" class="px-6 py-4 text-white">Sno.</th>
+                            <th scope="col" class="px-6 py-4 text-white"">Email</th>
+                            <th scope="col" class="px-6 py-4 text-white"">Conatact</th>
+                            <th scope="col" class="px-6 py-4 text-white"">Branch</th>
+                            <th scope="col" class="px-6 py-4 text-white"">Action</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in users %}
+
+                        <tr class="border-b dark:border-neutral-500">
+                            <td
+                                class="whitespace-nowrap px-6 py-4 font-medium text-white">{{forloop.counter}}</td>
+                            <td
+                                class="whitespace-nowrap px-6 py-4 text-white">{{i.user.username}}</td>
+                            <td
+                                class="whitespace-nowrap px-6 py-4 text-white">{{i.contact}}</td>
+                            <td
+                                class="whitespace-nowrap px-6 py-4 text-white">{{i.branch}}</td>
+
+                            <td
+                                class="whitespace-nowrap px-6 py-4 text-white"><a
+                                    href="{% url 'del_uploader' i.user.id %}"
+                                    class="hover:text-blue-500">Delete</a></td>
+
+                        </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock body %}

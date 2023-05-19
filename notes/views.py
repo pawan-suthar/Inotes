@@ -21,6 +21,16 @@ def contact(request):
     return render(request, 'contact.html')
 
 
+def uploaders(request):
+    if not request.user.is_authenticated:
+        return redirect('login_admin')
+    user = Signup.objects.all()
+
+    d = {'users': user}
+
+    return render(request, 'uploaders.html', d)
+
+
 def mynotes(request):
     if not request.user.is_authenticated:
         return redirect('login')
@@ -29,6 +39,14 @@ def mynotes(request):
     d = {'notes': notes}
 
     return render(request, 'mynotes.html', d)
+
+
+def del_uploader(request, pid):
+    if not request.user.is_authenticated:
+        return redirect('login_admin')
+    user = User.objects.get(id=pid)
+    user.delete()
+    return redirect('del_uploader')
 
 
 def del_notes(request, pid):
