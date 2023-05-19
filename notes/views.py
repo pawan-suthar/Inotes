@@ -226,7 +226,13 @@ def Logout(request):
 def home_admin(request):
     if not request.user.is_staff:
         return redirect('login_admin')
-    return render(request, 'homeadmin.html')
+    pn = Notes.objects.filter(status='pending').count()
+    ac = Notes.objects.filter(status='accept').count()
+    rj = Notes.objects.filter(status='reject').count()
+    al = Notes.objects.all().count()
+
+    d = {'pn': pn, 'ac': ac, 'rj': rj, 'al': al}
+    return render(request, 'homeadmin.html', d)
 
 # admin login view
 

@@ -15,7 +15,7 @@ urlpatterns = [
     path('userprofile', userprofile, name='userprofile'),
     path('notesupload', notesupload, name='notesupload'),
     path('mynotes', mynotes, name='mynotes'),
-    path('allnotes', allnotes, name='allnotes'),
+    path('viewallnote', viewallnote, name='viewallnote'),
     path('del_notes/<int:pid>', del_notes, name='del_notes'),
     path('del_all_notes/<int:pid>', del_all_notes, name='del_all_notes'),
 
@@ -23,11 +23,11 @@ urlpatterns = [
     path('logout', Logout, name='logout'),
     path('login_admin', login_admin, name='login_admin'),
     path('home_admin', home_admin, name='home_admin'),
-    path('viewallnote', viewallnote, name='viewallnote'),
     path('pendingnotes', pendingnotes, name='pendingnotes'),
     path('acceptednotes', acceptednotes, name='acceptednotes'),
     path('rejectednotes', rejectednotes, name='rejectednotes'),
     path('uploaders', uploaders, name='uploaders'),
+    path('allnotes', allnotes, name='allnotes'),
     path('assignstatus/<int:pid>', assignstatus, name='assignstatus'),
     path('del_uploader/<int:pid>', del_uploader, name='del_uploader'),
 

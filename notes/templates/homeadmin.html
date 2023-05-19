@@ -2,85 +2,89 @@
 
 {% block body %}
 
-<div class=" justify-center items-center min-h-screen bg-white
-    dark:bg-black">
-    <button type="button" class="relative inline-flex items-center px-5 py-2.5
-        text-sm font-medium text-center text-white bg-blue-700 rounded-lg
-        hover:bg-black focus:ring-4 focus:outline-none focus:ring-black
-        dark:bg-black ml-4 mb-4">
-        <svg class="w-5 h-5 mr-1" aria-hidden="true" fill="currentColor"
-            viewBox="0
-            0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10
-                9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path
-                d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
-        <span class="sr-only">Notifications</span>
-        pending notes
-        <div class="absolute inline-flex items-center justify-center w-6 h-6
-            text-xs
-            font-bold text-white bg-red-500 border-2 border-white rounded-full
-            -top-2 -right-2 dark:border-gray-900">8</div>
-    </button>
-    <button type="button" class="relative inline-flex items-center px-5 py-2.5
-        text-sm font-medium text-center text-white bg-blue-700 rounded-lg
-        hover:bg-black focus:ring-4 focus:outline-none focus:ring-black
-        dark:bg-black ml-4 mb-4">
-        <svg class="w-5 h-5 mr-1" aria-hidden="true" fill="currentColor"
-            viewBox="0
-            0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10
-                9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path
-                d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
-        <span class="sr-only">Notifications</span>
-        accepted notes
-        <div class="absolute inline-flex items-center justify-center w-6 h-6
-            text-xs
-            font-bold text-white bg-red-500 border-2 border-white rounded-full
-            -top-2 -right-2 dark:border-gray-900">8</div>
-    </button>
-    <button type="button" class="relative inline-flex items-center px-5 py-2.5
-        text-sm font-medium text-center text-white bg-blue-700 rounded-lg
-        hover:bg-black focus:ring-4 focus:outline-none focus:ring-black
-        dark:bg-black ml-4 mb-4">
-        <svg class="w-5 h-5 mr-1" aria-hidden="true" fill="currentColor"
-            viewBox="0
-            0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10
-                9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path
-                d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
-        <span class="sr-only">Notifications</span>
-        all notes
-        <div class="absolute inline-flex items-center justify-center w-6 h-6
-            text-xs
-            font-bold text-white bg-red-500 border-2 border-white rounded-full
-            -top-2 -right-2 dark:border-gray-900">8</div>
-    </button>
-    <button type="button" class="relative inline-flex items-center px-5 py-2.5
-        text-sm font-medium text-center text-white bg-blue-700 rounded-lg
-        hover:bg-black focus:ring-4 focus:outline-none focus:ring-black
-        dark:bg-black ml-4 mb-4">
-        <svg class="w-5 h-5 mr-1" aria-hidden="true" fill="currentColor"
-            viewBox="0
-            0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10
-                9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path
-                d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
-        <span class="sr-only">Notifications</span>
-        rejected notes
-        <div class="absolute inline-flex items-center justify-center w-6 h-6
-            text-xs
-            font-bold text-white bg-red-500 border-2 border-white rounded-full
-            -top-2 -right-2 dark:border-gray-900">8</div>
-    </button>
+<div class="flex flex-col min-h-screen">
+    <div class="mx-auto w-4/5 m-4 mt-32 flex justify-center">
+        <!-- Your anchor tags here -->
+        <a href="{% url 'pendingnotes' %}"
+            class="relative inline-flex items-center px-5 py-2.5
+    text-sm font-medium text-center text-white bg-blue-700 rounded-lg
+    hover:bg-black focus:ring-4 focus:outline-none focus:ring-black
+    dark:bg-black ml-4 mb-4">
+            <svg class="w-5 h-5 mr-1" aria-hidden="true" fill="currentColor"
+                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                <path
+                    d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+            </svg>
+            <span class="sr-only">Notifications</span>
+            Pending notes
+            <div
+                class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900">{{pn}}</div>
+        </a>
 
-
-</div>
-
-
-<footer
-    class="bg-black text-center dark:white lg:text-left">
-    <div class="p-4 text-center text-white dark:text-neutral-200">
-        © 2023 Copyright:
-        <a
-            class="text-white dark:text-white"
-            href="{% url 'home' %}">Inotes</a>
+        <a href="{% url 'acceptednotes' %}"
+            class="relative inline-flex items-center px-5 py-2.5
+    text-sm font-medium text-center text-white bg-blue-700 rounded-lg
+    hover:bg-black focus:ring-4 focus:outline-none focus:ring-black
+    dark:bg-black ml-4 mb-4">
+            <svg class="w-5 h-5 mr-1" aria-hidden="true" fill="currentColor"
+                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                <path
+                    d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+            </svg>
+            <span class="sr-only">Notifications</span>
+            Accepted notes
+            <div
+                class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900">{{ac}}</div>
+        </a>
+        <a href="{% url 'rejectednotes' %}"
+            class="relative inline-flex items-center px-5 py-2.5
+    text-sm font-medium text-center text-white bg-blue-700 rounded-lg
+    hover:bg-black focus:ring-4 focus:outline-none focus:ring-black
+    dark:bg-black ml-4 mb-4">
+            <svg class="w-5 h-5 mr-1" aria-hidden="true" fill="currentColor"
+                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                <path
+                    d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+            </svg>
+            <span class="sr-only">Notifications</span>
+            Rejected notes
+            <div
+                class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900">{{rj}}</div>
+        </a>
+        <a href="{% url 'allnotes' %}"
+            class="relative inline-flex items-center px-5 py-2.5
+    text-sm font-medium text-center text-white bg-blue-700 rounded-lg
+    hover:bg-black focus:ring-4 focus:outline-none focus:ring-black
+    dark:bg-black ml-4 mb-4">
+            <svg class="w-5 h-5 mr-1" aria-hidden="true" fill="currentColor"
+                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                <path
+                    d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+            </svg>
+            <span class="sr-only">Notifications</span>
+            ALl notes
+            <div
+                class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900">{{al}}</div>
+        </a>
     </div>
-</footer>
+
+    <footer class="bg-black text-center dark:text-white lg:text-left mt-auto">
+        <!-- Footer content here -->
+        <div class="p-4 text-center text-white dark:text-neutral-200">
+            © 2023 Copyright:
+            <a
+                class="text-white dark:text-white"
+                href="{% url 'home' %}">Inotes</a>
+        </div>
+    </footer>
+</div>
 
 {% endblock body %}
