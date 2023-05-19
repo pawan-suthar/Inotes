@@ -1,10 +1,10 @@
 {% extends "adminnav.html" %}
 
 {% block body %}
+<!-- 
+<div class="flex flex-col max-h-full">
+    <div class="mx-auto w-4/5 m-4 mt-52 flex justify-center">
 
-<div class="flex flex-col min-h-screen">
-    <div class="mx-auto w-4/5 m-4 mt-32 flex justify-center">
-        <!-- Your anchor tags here -->
         <a href="{% url 'pendingnotes' %}"
             class="relative inline-flex items-center px-5 py-2.5
     text-sm font-medium text-center text-white bg-blue-700 rounded-lg
@@ -76,15 +76,92 @@
         </a>
     </div>
 
-    <footer class="bg-black text-center dark:text-white lg:text-left mt-auto">
-        <!-- Footer content here -->
-        <div class="p-4 text-center text-white dark:text-neutral-200">
-            © 2023 Copyright:
-            <a
-                class="text-white dark:text-white"
-                href="{% url 'home' %}">Inotes</a>
-        </div>
-    </footer>
-</div>
+</div> -->
+<section class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto">
 
+        <div class="flex flex-wrap -m-4 text-center">
+            <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+                <a href="{% url 'pendingnotes' %}"
+                    class="p-4 md:w-1/4 sm:w-1/2 w-full">
+                    <div class="px-4 py-6 rounded-lg">
+                        <svg fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2"
+                            class="text-indigo-500 w-12 h-12 mb-3 inline-block"
+                            viewBox="0 0 24 24">
+                            <path d="M8 17l4 4 4-4m-4-5v9"></path>
+                            <path
+                                d="M20.88 18.09A5 5 0 0018 9h-1.26A8 8 0 103 16.29"></path>
+                        </svg>
+                        <h2 class="title-font font-medium text-3xl text-white">{{pn}}</h2>
+                        <p class="leading-relaxed text-white text-lg">Pending
+                            notes</p>
+                    </div>
+                </a>
+
+            </div>
+            <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+                <a href="{% url 'pendingnotes' %}"
+                    class="p-4 md:w-1/4 sm:w-1/2 w-full">
+                    <div class="px-4 py-6 rounded-lg">
+                        <svg fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2"
+                            class="text-indigo-500 w-12 h-12 mb-3 inline-block"
+                            viewBox="0 0 24 24">
+                            <path d="M8 17l4 4 4-4m-4-5v9"></path>
+                            <path
+                                d="M20.88 18.09A5 5 0 0018 9h-1.26A8 8 0 103 16.29"></path>
+                        </svg>
+                        <h2 class="title-font font-medium text-3xl text-white">{{ac}}</h2>
+                        <p class="leading-relaxed text-white text-lg">Accepted
+                            notes</p>
+                    </div>
+                </a>
+
+            </div>
+            <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+                <a href="{% url 'pendingnotes' %}"
+                    class="p-4 md:w-1/4 sm:w-1/2 w-full">
+                    <div class="px-4 py-6 rounded-lg">
+                        <svg fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2"
+                            class="text-indigo-500 w-12 h-12 mb-3 inline-block"
+                            viewBox="0 0 24 24">
+                            <path d="M8 17l4 4 4-4m-4-5v9"></path>
+                            <path
+                                d="M20.88 18.09A5 5 0 0018 9h-1.26A8 8 0 103 16.29"></path>
+                        </svg>
+                        <h2 class="title-font font-medium text-3xl text-white">{{rj}}</h2>
+                        <p class="leading-relaxed text-white text-lg">Rejected
+                            notes</p>
+                    </div>
+                </a>
+
+            </div>
+            <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+                <a href="{% url 'pendingnotes' %}"
+                    class="p-4 md:w-1/4 sm:w-1/2 w-full">
+                    <div class="px-4 py-6 rounded-lg">
+                        <svg fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2"
+                            class="text-indigo-500 w-12 h-12 mb-3 inline-block"
+                            viewBox="0 0 24 24">
+                            <path d="M8 17l4 4 4-4m-4-5v9"></path>
+                            <path
+                                d="M20.88 18.09A5 5 0 0018 9h-1.26A8 8 0 103 16.29"></path>
+                        </svg>
+                        <h2 class="title-font font-medium text-3xl text-white">{{al}}</h2>
+                        <p class="leading-relaxed text-white text-lg">All
+                            notes</p>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock body %}

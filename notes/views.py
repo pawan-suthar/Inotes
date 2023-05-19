@@ -101,7 +101,7 @@ def viewallnote(request):
     if not request.user.is_authenticated:
         return redirect('userlogin')
     # Order by the 'uploaddate' field in descending order
-    notes = Notes.objects.all().order_by('-uploaddate')
+    notes = Notes.objects.filter(status='accept').order_by('-uploaddate')
     d = {'notes': notes}
     return render(request, 'viewallnote.html', d)
 
