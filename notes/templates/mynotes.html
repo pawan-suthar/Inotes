@@ -1,0 +1,60 @@
+{% extends "cmnnav.html" %}
+
+{% block body %}
+
+<div class="mx-auto w-4/5 m-4">
+    <h1 class="text-4xl sm:text-5xl text-gray-800
+        dark:text-white font-extrabold tracking-tight text-center mb-16">
+        Your uploaded notes
+    </h1>
+
+    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+            <div class="overflow-hidden">
+                <table class="min-w-full text-left text-sm font-light">
+                    <thead
+                        class="border-b font-medium dark:border-neutral-500">
+                        <tr>
+                            <th scope="col" class="px-6 py-4 text-white">Sno.</th>
+                            <th scope="col" class="px-6 py-4 text-white"">Uploaded
+                                on</th>
+                            <th scope="col" class="px-6 py-4 text-white"">Branch</th>
+                            <th scope="col" class="px-6 py-4 text-white"">Subject</th>
+                            <th scope="col" class="px-6 py-4 text-white"">description</th>
+                            <th scope="col" class="px-6 py-4 text-white"">Status</th>
+                            <th scope="col" class="px-6 py-4 text-white"">Action</th>
+                            <th scope="col" class="px-6 py-4 text-white"">Download</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in notes %}
+
+                        <tr class="border-b dark:border-neutral-500">
+                            <td
+                                class="whitespace-nowrap px-6 py-4 font-medium text-white"">{{forloop.counter}}</td>
+                            <td
+                                class="whitespace-nowrap px-6 py-4 text-white"">{{i.uploaddate}}</td>
+                            <td
+                                class="whitespace-nowrap px-6 py-4 text-white"">{{i.branch}}</td>
+                            <td
+                                class="whitespace-nowrap px-6 py-4 text-white"">{{i.subject}}</td>
+                            <td
+                                class="whitespace-nowrap px-6 py-4 text-white"">{{i.description}}</td>
+                            <td
+                                class="whitespace-nowrap px-6 py-4 text-white"">{{i.status}}</td>
+                            <td
+                                class="whitespace-nowrap px-6 py-4 text-white"">{{i.status}}</td>
+                            <td
+                                class="whitespace-nowrap px-6 py-4 text-white"">{{i.notes}}</td>
+                        </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock body %}

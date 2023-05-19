@@ -22,8 +22,13 @@ def contact(request):
 
 
 def mynotes(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    user = User.objects.get(id=request.user.id)
+    notes = Notes.objects.filter(user=user)
+    d = {'notes': notes}
 
-    return render(request, 'mynotes.html')
+    return render(request, 'mynotes.html', d)
 
 
 def userlogin(request):
