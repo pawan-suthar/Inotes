@@ -4,14 +4,14 @@
 
 {% if error == "no" %}
 <script>
-    alert("chal aja andar");
+    alert("successfullly login ");
     window.location.href = "{% url 'home_admin' %}";
   </script>
 {% endif %}
 
 {% if error == "yes" %}
 <script>
-    alert("invalid user h bhai tu");
+    alert("invalid user");
   </script>
 {% endif %}
 

@@ -7,18 +7,26 @@ from datetime import date
 
 # Create your views here.
 
+# home page view
+
 
 def home(request):
     return render(request, 'home.html')
+
+# about page view
 
 
 def about(request):
     return render(request, 'about.html')
 
+# contact view
+
 
 def contact(request):
 
     return render(request, 'contact.html')
+
+# kisne kisne upload kiya
 
 
 def uploaders(request):
@@ -31,6 +39,7 @@ def uploaders(request):
     return render(request, 'uploaders.html', d)
 
 
+# user uploaded notes
 def mynotes(request):
     if not request.user.is_authenticated:
         return redirect('login')
@@ -41,6 +50,8 @@ def mynotes(request):
 
     return render(request, 'mynotes.html', d)
 
+# to see pending status notes
+
 
 def pendingnotes(request):
     if not request.user.is_authenticated:
@@ -49,6 +60,8 @@ def pendingnotes(request):
     d = {'notes': notes}
 
     return render(request, 'pending_notes.html', d)
+
+# to see accepted status notes
 
 
 def acceptednotes(request):
@@ -59,6 +72,8 @@ def acceptednotes(request):
 
     return render(request, 'acceptednotes.html', d)
 
+#  view for rejected notes
+
 
 def rejectednotes(request):
     if not request.user.is_authenticated:
@@ -67,6 +82,8 @@ def rejectednotes(request):
     d = {'notes': notes}
 
     return render(request, 'rejectednotes.html', d)
+
+# all notes ee to admin
 
 
 def allnotes(request):
@@ -77,6 +94,8 @@ def allnotes(request):
 
     return render(request, 'allnotes.html', d)
 
+# view all notes to user
+
 
 def viewallnote(request):
     if not request.user.is_authenticated:
@@ -86,6 +105,8 @@ def viewallnote(request):
     d = {'notes': notes}
     return render(request, 'viewallnote.html', d)
 
+#  uploader ko del krne k lie
+
 
 def del_uploader(request, pid):
     if not request.user.is_authenticated:
@@ -93,6 +114,8 @@ def del_uploader(request, pid):
     user = User.objects.get(id=pid)
     user.delete()
     return redirect('del_uploader')
+
+#  user self uploaded notes  delete krne k lie
 
 
 def del_notes(request, pid):
@@ -109,6 +132,8 @@ def del_all_notes(request, pid):
     notes = Notes.objects.get(id=pid)
     notes.delete()
     return redirect('allnotes')
+
+# view for assign status to notes
 
 
 def assignstatus(request, pid):
@@ -131,6 +156,8 @@ def assignstatus(request, pid):
 
     return render(request, 'assignstatus.html', d)
 
+# view for user login
+
 
 def userlogin(request):
     error = ""
@@ -150,6 +177,8 @@ def userlogin(request):
     d = {'error': error}
 
     return render(request, 'login.html', d)
+
+#  view for sign in
 
 
 def signin(request):
@@ -172,6 +201,8 @@ def signin(request):
     d = {'error': error}
     return render(request, 'signin.html', d)
 
+# view for user profile
+
 
 def userprofile(request):
     if not request.user.is_authenticated:
@@ -182,16 +213,22 @@ def userprofile(request):
 
     return render(request, 'userprofile.html', d)
 
+# view for logout
+
 
 def Logout(request):
     logout(request)
     return redirect('home')
+
+# view for admin homepage
 
 
 def home_admin(request):
     if not request.user.is_staff:
         return redirect('login_admin')
     return render(request, 'homeadmin.html')
+
+# admin login view
 
 
 def login_admin(request):
@@ -211,6 +248,8 @@ def login_admin(request):
 
     d = {'error': error}
     return render(request, 'loginadmin.html', d)
+
+# notes upload logic
 
 
 def notesupload(request):
