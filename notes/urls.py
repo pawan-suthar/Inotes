@@ -15,6 +15,7 @@ urlpatterns = [
     path('userprofile', userprofile, name='userprofile'),
     path('notesupload', notesupload, name='notesupload'),
     path('mynotes', mynotes, name='mynotes'),
+    path('del_notes/<int:pid>', del_notes, name='del_notes'),
 
     # links for admin
     path('logout', Logout, name='logout'),

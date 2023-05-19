@@ -31,6 +31,14 @@ def mynotes(request):
     return render(request, 'mynotes.html', d)
 
 
+def del_notes(request, pid):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    notes = Notes.objects.get(id=pid)
+    notes.delete()
+    return redirect('mynotes')
+
+
 def userlogin(request):
     error = ""
     if request.method == 'POST':
@@ -125,9 +133,11 @@ def notesupload(request):
         d = request.POST['description']
 
         try:
-            Notes.objects.create(user=ct, uploaddate=date.today(
-            ), branch=b, subject=s, notes=n, filetype=f, description=d, status='pending')
+            Notes.objects.create(user=ct, uploaddate=date.today(),
+                                 branch=b, subject=s, notes=n, filetype=f, description=d, status='pending')
             error = 'no'
+            # Redirect to 'mynotes' page after successful upload
+            return redirect('mynotes')
         except:
             error = 'yes'
     d = {'error': error}
