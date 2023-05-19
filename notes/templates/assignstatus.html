@@ -1,0 +1,60 @@
+{% extends "adminnav.html" %}
+
+{% block body %}
+
+{% if error == "no" %}
+<script>
+alert("status updated successfully");
+window.location.href = "{% url 'pendingnotes' %}";
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+alert("something went wrong...");
+</script>
+{% endif %}
+
+<form class="w-full" method="post">
+    {% csrf_token %}
+    <div class="mx-auto w-4/5 m-4">
+        <h1 class="text-4xl sm:text-5xl text-gray-800
+            dark:text-white font-extrabold tracking-tight text-center mb-16">
+            change status
+        </h1>
+
+        <div class="flex flex-col mt-0">
+            <label for="nid" class="hidden">Nid</label>
+            <input type="number" name="nid" id="nid"
+                placeholder="ID of notes" class="w-full mt-2 py-3 px-3
+                rounded-lg bg-black dark:bg-black
+                border border-gray-400 dark:border-gray-700 text-white
+                font-semibold focus:outline-none " value="{{notes.id}}" readonly>
+        </div>
+
+        <div class="flex flex-col mt-0">
+            <label for="filetype" class="hidden">Assign status</label>
+            <select name="ass" id="filetype"
+                class="w-full mt-2 py-3 px-3 rounded-lg bg-white dark:bg-black
+                border border-gray-400 dark:border-gray-700 text-white
+                font-semibold">
+
+                <option value>Assign status</option>
+                <option value="accept">accept</option>
+                <option value="Reject">Reject </option>
+
+            </select>
+        </div>
+
+        <button type="submit" class="md:w-32
+            bg-indigo-600 hover:bg-blue-dark
+            text-white font-bold py-3 px-6
+            rounded-lg mt-3 hover:bg-indigo-500
+            transition ease-in-out duration-300">
+            confirm
+        </button>
+    </div>
+
+</form>
+
+{% endblock body %}

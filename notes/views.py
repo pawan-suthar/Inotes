@@ -41,6 +41,24 @@ def mynotes(request):
     return render(request, 'mynotes.html', d)
 
 
+def pendingnotes(request):
+    if not request.user.is_authenticated:
+        return redirect('login_admin')
+    notes = Notes.objects.filter(status="pending")
+    d = {'notes': notes}
+
+    return render(request, 'pending_notes.html', d)
+
+
+def acceptednotes(request):
+    if not request.user.is_authenticated:
+        return redirect('login_admin')
+    notes = Notes.objects.filter(status="pending")
+    d = {'notes': notes}
+
+    return render(request, 'acceptednotes.html', d)
+
+
 def del_uploader(request, pid):
     if not request.user.is_authenticated:
         return redirect('login_admin')
@@ -55,6 +73,27 @@ def del_notes(request, pid):
     notes = Notes.objects.get(id=pid)
     notes.delete()
     return redirect('mynotes')
+
+
+def assignstatus(request, pid):
+    if not request.user.is_authenticated:
+        return redirect('login_admin')
+    notes = Notes.objects.get(id=pid)
+    error = ""
+    if request.method == 'POST':
+        # b = request.POST['nid']
+        s = request.POST['ass']
+        try:
+            notes.status = s
+            notes.save()
+            error = 'no'
+        except:
+            error = 'yes'
+    d = {
+        'notes': notes, 'error': error
+    }
+
+    return render(request, 'assignstatus.html', d)
 
 
 def userlogin(request):
