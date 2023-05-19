@@ -34,11 +34,13 @@
                         <li class="hover:border-blue-500 mx-1.5 sm:mx-6
                             capitalize mt-2"><a href="{% url 'pendingnotes' %}">pending</a></li>
                         <li class="hover:border-blue-500 mx-1.5 sm:mx-6
-                            capitalize mt-2"><a href="#">accepted</a></li>
+                            capitalize mt-2"><a href="{% url 'acceptednotes' %}">accepted</a></li>
                         <li class="hover:border-blue-500 mx-1.5 sm:mx-6
-                            capitalize mt-2"><a href="#">all notes</a></li>
+                            capitalize mt-2"><a href="{% url 'rejectednotes' %}">rejected</a></li>
                         <li class="hover:border-blue-500 mx-1.5 sm:mx-6
-                            capitalize mt-2"><a href="#">rejected</a></li>
+                            capitalize mt-2"><a href="#">all
+                                notes</a></li>
+
                     </ul>
                 </div>
 

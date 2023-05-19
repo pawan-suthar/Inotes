@@ -53,10 +53,19 @@ def pendingnotes(request):
 def acceptednotes(request):
     if not request.user.is_authenticated:
         return redirect('login_admin')
-    notes = Notes.objects.filter(status="pending")
+    notes = Notes.objects.filter(status="accept")
     d = {'notes': notes}
 
     return render(request, 'acceptednotes.html', d)
+
+
+def rejectednotes(request):
+    if not request.user.is_authenticated:
+        return redirect('login_admin')
+    notes = Notes.objects.filter(status="reject")
+    d = {'notes': notes}
+
+    return render(request, 'rejectednotes.html', d)
 
 
 def del_uploader(request, pid):

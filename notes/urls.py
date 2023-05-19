@@ -17,6 +17,7 @@ urlpatterns = [
     path('mynotes', mynotes, name='mynotes'),
     path('pendingnotes', pendingnotes, name='pendingnotes'),
     path('acceptednotes', acceptednotes, name='acceptednotes'),
+    path('rejectednotes', rejectednotes, name='rejectednotes'),
     path('uploaders', uploaders, name='uploaders'),
     path('assignstatus/<int:pid>', assignstatus, name='assignstatus'),
     path('del_uploader/<int:pid>', del_uploader, name='del_uploader'),
