@@ -35,7 +35,8 @@ def mynotes(request):
     if not request.user.is_authenticated:
         return redirect('login')
     user = User.objects.get(id=request.user.id)
-    notes = Notes.objects.filter(user=user)
+    # Order by the 'uploaddate' field in descending order
+    notes = Notes.objects.filter(user=user).order_by('-uploaddate')
     d = {'notes': notes}
 
     return render(request, 'mynotes.html', d)
@@ -68,6 +69,24 @@ def rejectednotes(request):
     return render(request, 'rejectednotes.html', d)
 
 
+def allnotes(request):
+    if not request.user.is_authenticated:
+        return redirect('login_admin')
+    notes = Notes.objects.all()
+    d = {'notes': notes}
+
+    return render(request, 'allnotes.html', d)
+
+
+def viewallnote(request):
+    if not request.user.is_authenticated:
+        return redirect('userlogin')
+    # Order by the 'uploaddate' field in descending order
+    notes = Notes.objects.all().order_by('-uploaddate')
+    d = {'notes': notes}
+    return render(request, 'viewallnote.html', d)
+
+
 def del_uploader(request, pid):
     if not request.user.is_authenticated:
         return redirect('login_admin')
@@ -82,6 +101,14 @@ def del_notes(request, pid):
     notes = Notes.objects.get(id=pid)
     notes.delete()
     return redirect('mynotes')
+
+
+def del_all_notes(request, pid):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    notes = Notes.objects.get(id=pid)
+    notes.delete()
+    return redirect('allnotes')
 
 
 def assignstatus(request, pid):

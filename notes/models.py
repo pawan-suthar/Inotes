@@ -24,4 +24,4 @@ class Notes(models.Model):
     status = models.CharField(max_length=10, )
 
     def __str__(self):
-        return self.signup.user.username+""+self.status
+        return self.Signup.user.username+" "+self.status

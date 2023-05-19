@@ -8,7 +8,7 @@
 {% if error == "no" %}
 <script>
 alert("uploaded successfully");
-// window.location.href = "{% url 'userlogin' %}";
+window.location.href = "{% url 'mynotes' %}";
 </script>
 {% endif %}
 
@@ -17,7 +17,6 @@ alert("uploaded successfully");
 alert("something went wrong...");
 </script>
 {% endif %}
-
 
 <form class="w-full" method="post" enctype="multipart/form-data">
     {% csrf_token %}
@@ -32,7 +31,7 @@ alert("something went wrong...");
                 class="w-full mt-2 py-3 px-3 rounded-lg bg-white dark:bg-black
                 border border-gray-400 dark:border-gray-700 text-white
                 font-semibold">
-                <option value="" selected>Select
+                <option value selected>Select
                     branch</option>
                 <option value="CS">CS</option>
                 <option value="Btech">Btech </option>
@@ -41,10 +40,8 @@ alert("something went wrong...");
                 <option value="Electrical">Electrical</option>
                 <option value="MSc(cs)">MSc(cs)</option>
 
-
             </select>
         </div>
-
 
         <div class="flex flex-col mt-0">
             <label for="sub" class="hidden">Subject</label>
@@ -69,7 +66,7 @@ alert("something went wrong...");
                 class="w-full mt-2 py-3 px-3 rounded-lg bg-white dark:bg-black
                 border border-gray-400 dark:border-gray-700 text-white
                 font-semibold">
-                <option value="" selected>Filetype</option>
+                <option value selected>Filetype</option>
                 <option value="PDF">PDF</option>
                 <option value="DOC">DOC </option>
                 <option value="WORD">WORD </option>
@@ -98,10 +95,6 @@ alert("something went wrong...");
         </button>
     </div>
 
-
-
 </form>
-
-
 
 {% endblock body %}

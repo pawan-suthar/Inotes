@@ -1,0 +1,73 @@
+{% extends "adminnav.html" %}
+
+{% block body %}
+
+<div class="mx-auto w-4/5 m-4">
+    <h1 class="text-4xl sm:text-5xl text-gray-800
+        dark:text-white font-extrabold tracking-tight text-center mb-16">
+        All Notes
+    </h1>
+
+    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+            <div class="overflow-hidden">
+                <table class="min-w-full text-left text-sm font-light">
+                    <thead
+                        class="border-b font-medium dark:border-neutral-500">
+                        <tr>
+                            <th scope="col" class="px-6 py-4 text-white">Sno.</th>
+                            <th scope="col" class="px-6 py-4 text-white"">Uploaded
+                                on</th>
+                            <th scope="col" class="px-6 py-4 text-white"">Uploaded
+                                by</th>
+                            <th scope="col" class="px-6 py-4 text-white"">Branch</th>
+                            <th scope="col" class="px-6 py-4 text-white"">Subject</th>
+                            <th scope="col" class="px-6 py-4 text-white"">description</th>
+                            <th scope="col" class="px-6 py-4 text-white"">Status</th>
+                            <th scope="col" class="px-6 py-4 text-white"">Change
+                                Status</th>
+                            <th scope="col" class="px-6 py-4 text-white"">Download</th>
+                            <th scope="col" class="px-6 py-4 text-white"">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in notes %}
+
+                        <tr class="border-b dark:border-neutral-500">
+                            <td
+                                class="whitespace-nowrap px-6 py-4 font-medium text-white">{{forloop.counter}}</td>
+                            <td
+                                class="whitespace-nowrap px-6 py-4 text-white">{{i.uploaddate}}</td>
+                            <td
+                                class="whitespace-nowrap px-6 py-4 text-white">{{i.user.username}}</td>
+                            <td
+                                class="whitespace-nowrap px-6 py-4 text-white">{{i.branch}}</td>
+                            <td
+                                class="whitespace-nowrap px-6 py-4 text-white">{{i.subject}}</td>
+                            <td
+                                class="whitespace-nowrap px-6 py-4 text-white">{{i.description}}</td>
+                            <td
+                                class="whitespace-nowrap px-6 py-4 text-white">{{i.status}}</td>
+                            <td
+                                class="whitespace-nowrap px-6 py-4 text-white"><a
+                                    href="{% url 'assignstatus' i.id %}"
+                                    class="hover:text-blue-500">Change</a></td>
+                            <td
+                                class="inline-block rounded bg-neutral-50 mt-2 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-neutral-800 shadow-[0_4px_9px_-4px_#cbcbcb] transition duration-150 ease-in-out hover:bg-neutral-100 hover:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] focus:bg-neutral-100 focus:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] focus:outline-none focus:ring-0 active:bg-neutral-200 active:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(251,251,251,0.3)] dark:hover:shadow-[0_8px_9px_-4px_rgba(251,251,251,0.1),0_4px_18px_0_rgba(251,251,251,0.05)] dark:focus:shadow-[0_8px_9px_-4px_rgba(251,251,251,0.1),0_4px_18px_0_rgba(251,251,251,0.05)] dark:active:shadow-[0_8px_9px_-4px_rgba(251,251,251,0.1),0_4px_18px_0_rgba(251,251,251,0.05)]"><a
+                                    href="{{i.notes.url}}">Download</a></td>
+                            <td
+                                class="whitespace-nowrap px-6 py-4 text-white"><a
+                                    href="{% url 'del_all_notes' i.id %}"
+                                    class="hover:text-blue-500">Delete</a></td>
+                        </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock body %}

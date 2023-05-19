@@ -15,13 +15,16 @@ urlpatterns = [
     path('userprofile', userprofile, name='userprofile'),
     path('notesupload', notesupload, name='notesupload'),
     path('mynotes', mynotes, name='mynotes'),
+    path('viewallnote', viewallnote, name='viewallnote'),
     path('pendingnotes', pendingnotes, name='pendingnotes'),
     path('acceptednotes', acceptednotes, name='acceptednotes'),
     path('rejectednotes', rejectednotes, name='rejectednotes'),
+    path('allnotes', allnotes, name='allnotes'),
     path('uploaders', uploaders, name='uploaders'),
     path('assignstatus/<int:pid>', assignstatus, name='assignstatus'),
     path('del_uploader/<int:pid>', del_uploader, name='del_uploader'),
     path('del_notes/<int:pid>', del_notes, name='del_notes'),
+    path('del_all_notes/<int:pid>', del_all_notes, name='del_all_notes'),
 
     # links for admin
     path('logout', Logout, name='logout'),
