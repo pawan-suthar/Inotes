@@ -3,7 +3,6 @@
 {% load static %}
 {% block body %}
 
-
 {% if error == "no" %}
 <script>
     alert("register success");
@@ -49,7 +48,7 @@
                     <label class="block text-white text-sm font-bold mb-2"
                         for='number'>Contact</label>
                     <input class="w-full px-3 py-2 border border-gray-300
-                        rounded-md
+                        rounded-md text-black
                         focus:outline-none focus:border-indigo-500"
                         type="number" id="number" name="ucnumber"
                         placeholder="number with country code">
@@ -65,8 +64,8 @@
                 </div>
                 <label for="countries" class="block mb-2 text-sm font-medium
                     text-white dark:text-white">Branch</label>
-                <select id="countries" name="ubranch" class="bg-black border
-                    border-white
+                <select id="countries" name="ubranch" class="bg-white border
+                    border-white 
                     text-black text-sm rounded-lg focus:ring-blue-500
                     focus:border-blue-500 block w-full p-2.5 dark:bg-white
                     dark:border-gray-600
@@ -92,10 +91,5 @@
     </body>
 
 </div>
-
-
-
-
-
 
 {% endblock body %}

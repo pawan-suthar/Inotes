@@ -18,31 +18,25 @@ alert("something went wrong...");
 <form class="w-full" method="post">
     {% csrf_token %}
     <div class="mx-auto w-4/5 m-4">
-        <h1 class="text-4xl sm:text-5xl text-gray-800
-            dark:text-white font-extrabold tracking-tight text-center mb-16">
-            change status
+        <h1
+            class="text-4xl sm:text-5xl font-extrabold tracking-tight text-center mb-16 text-white">
+            Change status
         </h1>
 
         <div class="flex flex-col mt-0">
             <label for="nid" class="hidden">Nid</label>
-            <input type="number" name="nid" id="nid"
-                placeholder="ID of notes" class="w-full mt-2 py-3 px-3
-                rounded-lg bg-black dark:bg-black
-                border border-gray-400 dark:border-gray-700 text-white
-                font-semibold focus:outline-none " value="{{notes.id}}" readonly>
+            <input type="number" name="nid" id="nid" placeholder="ID of notes"
+                class="w-full mt-2 py-3 px-3 rounded-lg bg-black dark:bg-black dark:text-white text-white font-semibold focus:outline-none"
+                value="{{notes.id}}" readonly>
         </div>
 
         <div class="flex flex-col mt-0">
             <label for="filetype" class="hidden">Assign status</label>
             <select name="ass" id="filetype"
-                class="w-full mt-2 py-3 px-3 rounded-lg bg-white dark:bg-black
-                border border-gray-400 dark:border-gray-700 text-white
-                font-semibold">
-
+                class="w-full mt-2 py-3 px-3 rounded-lg bg-black dark:bg-black dark:text-white text-white font-semibold">
                 <option value>Assign status</option>
                 <option value="accept">accept</option>
-                <option value="reject">Reject </option>
-
+                <option value="reject">Reject</option>
             </select>
         </div>
 

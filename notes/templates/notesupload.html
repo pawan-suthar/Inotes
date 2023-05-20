@@ -21,14 +21,14 @@ alert("something went wrong...");
 <form class="w-full" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="mx-auto w-4/5 m-4">
-        <h1 class="text-4xl sm:text-5xl text-gray-800
-            dark:text-white font-extrabold tracking-tight text-center mb-16">
+        <h1
+            class="text-4xl sm:text-5xl font-extrabold tracking-tight text-center mb-16 text-white">
             Upload notes
         </h1>
         <div class="flex flex-col mt-0">
             <label for="branch" class="hidden">Branch</label>
             <select name="branch" id="branch"
-                class="w-full mt-2 py-3 px-3 rounded-lg bg-white dark:bg-black
+                class="w-full mt-2 py-3 px-3 rounded-lg bg-black dark:bg-black
                 border border-gray-400 dark:border-gray-700 text-white
                 font-semibold">
                 <option value selected>Select
@@ -56,14 +56,14 @@ alert("something went wrong...");
             <label for="n" class="hidden">Select notes</label>
             <input type="file" name="notes" id="n"
                 placeholder="Select notes files" class="w-full mt-2 py-3 px-3
-                rounded-lg bg-white dark:bg-black
+                rounded-lg bg-black dark:bg-black
                 border border-gray-400 dark:border-gray-700 text-white
                 font-semibold focus:border-indigo-500 focus:outline-none">
         </div>
         <div class="flex flex-col mt-0">
             <label for="filetype" class="hidden">Filetype</label>
             <select name="filetype" id="filetype"
-                class="w-full mt-2 py-3 px-3 rounded-lg bg-white dark:bg-black
+                class="w-full mt-2 py-3 px-3 rounded-lg bg-black dark:bg-black
                 border border-gray-400 dark:border-gray-700 text-white
                 font-semibold">
                 <option value selected>Filetype</option>
@@ -82,7 +82,7 @@ alert("something went wrong...");
             <label for="desc" class="hidden">Description</label>
             <input type="text" name="description" id="desc"
                 placeholder="Description" class="w-full mt-2 py-3 px-3
-                rounded-lg bg-white dark:bg-black
+                rounded-lg bg-black dark:bg-black
                 border border-gray-400 dark:border-gray-700 text-white
                 font-semibold focus:border-indigo-500 focus:outline-none">
         </div>

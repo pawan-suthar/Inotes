@@ -9,16 +9,12 @@
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
 
-    <body class="dark:bg-black">
+    <body class="bg-black">
         <!-- component -->
-        <nav class="bg-white shadow dark:bg-black">
+        <nav class="bg-black shadow text-capitalize">
             <div class="container flex items-center justify-center p-6 mx-auto
-                text-gray-600 capitalize dark:text-white">
-                <a href="#" class="border-b-2
-                    border-transparent
-                    hover:text-gray-800 dark:hover:text-gray-200
-                    hover:border-blue-500 mx-1.5 sm:mx-6 capitalize">login as:
-                    {{request.user.username}}</a>
+                text-gray-600 capitalize text-white">
+
                 <a href="{% url 'userprofile' %}" class="border-b-2
                     border-transparent
                     hover:text-gray-800 dark:hover:text-gray-200
@@ -31,7 +27,8 @@
                 <a href="{% url 'viewallnote' %}" class="border-b-2
                     border-transparent
                     hover:text-gray-800 dark:hover:text-gray-200
-                    hover:border-blue-500 mx-1.5 sm:mx-6 capitalize">View all</a>
+                    hover:border-blue-500 mx-1.5 sm:mx-6 capitalize ">View
+                    all</a>
                 <a href="{% url 'mynotes' %}" class="border-b-2
                     border-transparent
                     hover:text-gray-800 dark:hover:text-gray-200
